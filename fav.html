@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Products</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h2 class="mt-5 mb-3">Favorite Products</h2>
+    <div class="row">
+        {% for item in favorites %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ item.product.image.url }}" class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Name:{{ item.product.Name }}</h5>
+                        <p class="card-text">Price: ${{ item.product.Price }}</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" class="btn btn-danger">Remove from Favorites</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No favorite products yet.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

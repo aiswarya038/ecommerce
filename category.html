@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container " style="margin-top: 100px;">
+        <h1 class="text-center font-monospace ">View Our Product <span class="text-info">{{ category.name }}</span></h1>
+        {% for product in products %}
+        <!-- <div class=" "> -->
+        <div class="col-lg-3 col-md-6 pb-1 ">
+            <div class="cat-item d-flex flex-column  border mb-4" style="padding: 30px;">
+                <p class="text-right">15 Products</p>
+                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <img class="img-fluid" src="{{ product.image.url}}" alt="">
+                </a>
+                <h5 class=" ">{{product.Name}}</h5>
+                <p class=" card-text "><b><span>&#8377;</span>{{product.Price}}</b></p>
+                
+
+            </div>
+        </div>
+        <!-- </div> -->
+        {% endfor %}
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>whishlist</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="eCommerce HTML Template Free Download" name="keywords">
+    <meta content="eCommerce HTML Template Free Download" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/99dda0d5d9.js' crossorigin='anonymous'></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'css/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'css/slick-theme.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <link href="{% static 'css/ui.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/responsive.css' %}" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+
+    <!-- Template Stylesheet -->
+    <!-- <link href="{% static 'css/wishlist.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'fonts/fontawesome/css/all.min.css' %}" type="text/css" rel="stylesheet">
+
+</head>
+<style>
+    .wishlist-page {
+        position: relative;
+        padding: 30px 0;
+        margin-top: 70px;
+    }
+
+    .link a {
+        color: black;
+        text-decoration: none;
+        padding-top: 5px;
+    }
+
+    .link a:hover {
+        border-bottom: 3px solid white;
+    }
+
+    .wishlist-page .wishlist-page-inner {
+        padding: 30px;
+        background: #ffffff;
+        width: 65%;
+        margin-left: 200px;
+
+    }
+
+    .wishlist-page .table {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .wishlist-page .table .thead-dark th {
+        font-family: 'Source Code Pro', monospace;
+        font-size: 18px;
+        font-weight: 700;
+        color: #353535;
+        /* text-align: center; */
+        background: transparent;
+        border-color: #dddddd;
+        border-bottom: none;
+        vertical-align: middle;
+    }
+
+    .wishlist-page .table td {
+        font-size: 16px;
+        vertical-align: middle;
+    }
+
+    .wishlist-page .table .img {
+        display: flex;
+        align-items: center;
+    }
+
+    .wishlist-page .table .img img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-right: 15px;
+    }
+
+    .wishlist-page .table .img p {
+        display: inline-block;
+        text-align: left;
+        margin: 0;
+    }
+</style>
+
+<body style="background-color: aliceblue;">
+
+    <div class="wishlist-page ms-5">
+        <div class="container-fluid">
+            <div class="wishlist-page-inner ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-borderless ">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <!-- <th>Quantity</th> -->
+                                        <th>Add to Cart</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="align-middle">
+                                    {% for items in wishlist_items %}
+                                    <tr>
+                                        <td class="img">
+                                            <!-- <div class="img"> -->
+                                            <img src="{% static 'images/' %}{{ items.product.image }}" alt="Image"
+                                                class="rounded-circle ms-5" style="height: 80px;">
+                                        </td>
+                                        <td>
+                                            <p>{{items.product.Name}}</p>
+                                        </td>
+                                        <td><span>&#8377; </span>{{items.product.Price}}</td>
+                                        <td><a class="btn bg-primary text-light "
+                                                href="/add_cart/{{items.product.id}}" >Add to
+                                                Cart</a></td>
+                                        <td><a href="/remove_from_favorites/{{items.id}}"><i class="fa fa-trash text-danger "
+                                                    style="font-size: 30px;"></i></a></td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/easing.min.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/wishlist.js' %}"></script>
+</body>
+
+</html>

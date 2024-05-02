@@ -1,0 +1,211 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Details</title>
+    <style>
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .product {
+            width: 30%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-details {
+            margin-top: 10px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>view our products: {{ category.Name }}</h1>
+    <ul class="product-list">az
+        {% for product in products %}
+        <li class="product">
+            <a href="#"><img src="{{products.image.url}}" class="image"></a>
+            <h5 class=" ">{{product.Name}}</h5>
+            <p>Description: {{ product.Description }}</p>
+            <p class=" card-text "><b><span>&#8377;</span>{{product.Price}}</b></p>
+           <button type="submit">View</button>
+        </li>
+        {% empty %}
+        <li>No products found for this category</li>
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html> -->
+
+
+
+
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=604800" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>GreatKart | One of the Biggest Online Shopping Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/99dda0d5d9.js' crossorigin='anonymous'></script>
+
+    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
+    <script src='https://kit.fontawesome.com/99dda0d5d9.js' crossorigin='anonymous'></script>
+
+    <!-- Bootstrap4 files-->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- Font awesome 5 -->
+    <link href="{% static 'fonts/fontawesome/css/all.min.css' %}" type="text/css" rel="stylesheet">
+
+    <!-- custom style -->
+    <link href="{% static 'css/ui.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+    <link href="{% static 'fonts/fontawesome/css/all.min.css' %}" type="text/css" rel="stylesheet">
+
+    <!-- custom javascript -->
+    <script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+
+    <style>
+        .image:hover {
+            transition: .5s;
+            transform: scale(1.2);
+        }
+
+        .link a {
+            color: black;
+            text-decoration: none;
+            padding-top: 5px;
+        }
+
+        .link a:hover {
+            border-bottom: 3px solid white;
+        }
+
+        .favorite-btn.enlarged {
+        transform: scale(1.2); 
+    }
+
+    .favorite-btn.btn-danger:not(:disabled):not(.disabled):active {
+        color: #fff; 
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+    </style>
+
+</head>
+
+<body>
+
+    <section class="section-content padding-y bg" style="padding-top: 50px;margin-top: 50px;">
+        <div class="container">
+            <h1>View our products: {{ category.name }}</h1>
+            <ul class="product-list">
+                {% for product in products %}
+                <li class="product">
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <aside class="col-md-6">
+                                <article class="gallery-wrap">
+                                    <div class="img-big-wrap">
+                                        <a href="#"><img src="{% static 'images/' %}{{ product.image }}" class="image"></a>
+                                    </div>
+                                </article>
+                            </aside>
+                            <main class="col-md-6 border-left">
+                                <article class="content-body">
+                                    <h2 class="title text-danger">{{product.Name}}</h2>
+                                    <div class="d-flex mb-3">
+                                        <div class="text-primary mr-2">
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star-half-alt"></small>
+                                            <small class="far fa-star"></small>
+                                        </div>
+                                        <small class="pt-1">(50 Reviews)</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <var class="price h4"><b><span>&#8377; </span>{{product.Price}}</b></var>
+                                    </div>
+                                    <p>Description: {{ product.Description }}</p>
+                                    <hr>
+                                    <form action="/add_cart/{{ product.id }}" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <span class="font-monospace" style="font-size: 18px;">Please choose Quantity</span>
+                                        <input id="product-quantity" class="btn bg-warning ms-3 w-25" type="number" value="1"
+                                            style="font-weight: bold;font-size: medium;" name="qtn">
+                                        <br>
+                                        <button type="submit" class="btn bg-success text-light" style="margin-top: 10px;">Add To Cart <i
+                                                class="fas fa-shopping-cart"></i></button>
+                                    </form>
+                                    {% if product_in_favorites %}
+        <form action="{% url 'remove_from_favorites' product.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger mt-3">Remove from Favorites</button>
+        </form>
+    {% else %}
+        <form action="{% url 'add_to_favorites' product.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary mt-3">Add to Favorites</button>
+        </form>
+    {% endif %}
+                                </article>
+                            </main>
+                        </div>
+                    </div>
+                </li>
+                {% empty %}
+                <li>No products found for this category</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+</body>
+
+</html>

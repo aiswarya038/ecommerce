@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Your E-commerce Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            margin-top: 150px;
+        }
+
+        div {
+            text-align: center;
+            margin-top: 10%;
+        }
+
+        h1 {
+            color: black;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        a {
+            margin-right: 10%;
+            color: darkblue;
+        }
+
+        #a1 {
+            color: red;
+            margin-left: 45%;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: blue;
+            color:white;
+            font-weight: bold;
+            margin-right: 14%;
+            height: 40px;
+            width: 100px;
+            font-size: 15px;
+            border-radius: 5px;
+
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 15%;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 20%;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
+        a{
+            text-decoration: none;
+        }
+
+.login-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.login-form button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+.account{
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <form action="log" method="POST" class="login-form">
+        {% csrf_token %}
+        <div>
+            <h1>LOGIN PAGE</h1>
+            <label for="uname">USERNAME</label>
+            <input type="text" placeholder="Enter your username" name="uname">
+            <label for="pass">PASSWORD</label>
+            <input type="password" placeholder="Enter your password" name="psw">
+            <a href="{% url 'password_reset' %}" class="forgot-password">Forgot Password?</a>
+            <button type="submit">LOGIN</button><br><br>
+            <a href="{% url 'customreg' %}" id="a1"  class="account">Create an Account</a>
+        </div>
+    </form>
+</body>
+</html> 

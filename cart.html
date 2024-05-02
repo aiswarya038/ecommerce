@@ -1,0 +1,336 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+     <link rel="icon" type="image/png" href="https://th.bing.com/th/id/R.348655d861a6eec265316c2fbdee5aaf?rik=Wt5C2bIFJdMwvg&riu=http%3a%2f%2ffiles.softicons.com%2fdownload%2fsystem-icons%2fweb0.2ama-icons-by-chrfb%2fpng%2f48x48%2fOperating+System+-+Apple+Mac.png&ehk=%2fkVs6KzGyeRSUDIAWWioRnjDP1E8K2w2rAzpufVNMQU%3d&risl=&pid=ImgRaw&r=0" />
+     <script src="https://kit.fontawesome.com/28157a8fdb.js" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <title>Cart</title>
+    <style>
+        #cart {
+            max-width: 1440px;
+            padding-top: 60px;
+            margin: auto;
+          }
+          .form div {
+            margin-bottom: 0.4em;
+          }
+          .cartItem {
+            --bs-gutter-x: 1.5rem;
+          }
+          .cartItemQuantity,
+          .proceed {
+            background: #f4f4f4;
+          }
+          .items {
+            padding-right: 30px;
+          }
+          #btn-checkout {
+            min-width: 100%;
+          }
+          @import url("https://fonts.googleapis.com/css2?family=Exo&display=swap");
+          body {
+            background-color: #fff;
+            font-family: "Exo", sans-serif;
+            font-size: 22px;
+            margin: 0;
+            padding: 0;
+            color: #111111;
+            justify-content: center;
+            align-items: center;
+          }
+          a {
+            color: #0e1111;
+            text-decoration: none;
+          }
+          .btn-check:focus + .btn-primary,
+          .btn-primary:focus {
+            color: #fff;
+            background-color: #111;
+            border-color: transparent;
+            box-shadow: 0 0 0 0.25rem rgb(49 132 253 / 50%);
+          }
+          button:hover,
+          .btn:hover {
+            box-shadow: 5px 5px 7px #c8c8c8, -5px -5px 7px white;
+          }
+          button:active {
+            box-shadow: 2px 2px 2px #c8c8c8, -2px -2px 2px white;
+          }
+          a:focus,
+          button:focus,
+          input:focus,
+          textarea:focus {
+            outline: none;
+          }
+          main:before {
+            content: "";
+            display: block;
+            height: 88px;
+          }
+          h1 {
+            font-size: 2.4em;
+            font-weight: 600;
+            letter-spacing: 0.15rem;
+            text-align: center;
+            margin: 30px 6px;
+          }
+          h2 {
+            color: rgb(37, 44, 54);
+            font-weight: 700;
+            font-size: 2.5em;
+          }
+          h3 {
+            border-bottom: solid 2px #000;
+          }
+          h5 {
+            padding: 0;
+            font-weight: bold;
+            color: #92afcc;
+          }
+          p {
+            color: #333;
+            font-family: "Roboto", sans-serif;
+            margin: 0.6em 0;
+          }
+          h1,
+          h2,
+          h4 {
+            text-align: center;
+            padding-top: 16px;
+          }
+          .back {
+            position: relative;
+            top: -30px;
+            font-size: 16px;
+            margin: 10px 10px 3px 15px;
+          }
+          .inline {
+            display: inline-block;
+          }
+          .shopnow,
+          .contact {
+            background-color: #000;
+            padding: 10px 20px;
+            font-size: 30px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.5s;
+            cursor: pointer;
+          }
+          .shopnow:hover {
+            text-decoration: none;
+            color: white;
+            background-color: #c41505;
+          }
+          .shopnow span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: all 0.5s;
+          }
+          .shopnow span:after {
+            content: url("https://badux.co/smc/codepen/caticon.png");
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            top: 2px;
+            right: -6px;
+            transition: all 0.5s;
+          }
+          .shopnow:hover span {
+            padding-right: 25px;
+          }
+          .shopnow:hover span:after {
+            opacity: 1;
+            top: 2px;
+            right: -6px;
+          }
+          .ma {
+            margin: auto;
+          }
+          .price {
+            color: slategrey;
+            font-size: 2em;
+          }
+          #mycart {
+            min-width: 90px;
+          }
+          #cartItems {
+            font-size: 17px;
+          }
+          #product .container .row .pr4 {
+            padding-right: 15px;
+          }
+          #product .container .row .pl4 {
+            padding-left: 15px;
+          }
+          .root {
+            --primary-light: #8abdff;
+            --primary: #6d5dfc;
+            --primary-dark: #5b0eeb;
+            --white: #ffffff;
+            --greyLight-1: #e4ebf5;
+            --greyLight-2: #c8d0e7;
+            --greyDark: #9baacf;
+          }
+          
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            
+          }
+          input[type="search"] {
+            background: #ffffff33;
+          }
+          
+          input[type="search"]:focus::placeholder {
+            transition: 0.3s;
+            color: transparent;
+          }
+          
+          input[type="search"]:hover {
+            box-shadow: 0 4px 30px #0000001a;
+            border: 1px solid #9999;
+          }
+          
+          input[type="search"]:focus {
+            background: transparent;
+          }
+          
+          .social{
+            padding:5px;
+            border-radius:50%;
+            color:#000000;
+          }
+          
+          .social:hover{
+            color:#ffffff;
+            background-color:#000000;
+          }
+          
+          .top-header {
+            height: 350px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-origin: border-box;
+            transition: background-image 1s;
+            background-color: rgba(25, 0, 255, 0.5);
+            background-blend-mode: multiply;
+          }
+          
+          .navbar {
+            background: #ffffff33;
+            box-shadow: 0 4px 30px #0000001a;
+            backdrop-filter: blur(12.9px);
+            -webkit-backdrop-filter: blur(12.9px);
+            margin: 5px 10px;
+            border-radius: 16px;
+            border: 1px solid #ffffff4d;
+          }
+          section{
+            background: linear-gradient( #16a0ab, #5557a1);
+           
+          }  
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light bg-opacity-75 fixed-top p-1">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav">
+                </ul>
+                <div class="ml-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ms-2">
+                          <a href="{% url 'logout' %}" class="btn btn-outline-primary text-dark rounded-pill mb-1">Logout</a>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <a href="{% url 'cart' %}" class="btn btn-outline-primary text-dark rounded-pill mb-1">Cart</a>
+                        </li>
+                        <li class="nav-item ms-2">
+                          <a href="{% url 'home' %}" class="btn btn-outline-primary text-dark rounded-pill mb-1">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+      <main id="cart" style="max-width: 960px">
+          <h1>Your Cart</h1>
+          {% if total_quantity == 0 %}
+          <p>Your cart is empty. <a href="{% url 'home' %}">Purchase</a></p>
+          {% else %}
+          <div class="container-fluid">
+              <div class="row align-items-start">
+                  <div class="col-12 col-sm-8 items">
+                      {% for item in cart_items %}
+                      <div class="cartItem row align-items-start">
+                          <div class="col-3 mb-2">
+                              <img class="w-100" src="{% static 'images/' %}{{ item.product.image }}" alt="{{ item.product.Name }}">
+                          </div>
+                          <div class="col-5 mb-2">
+                              <h6 class="">{{ item.product.Name }}</h6>
+                              <p class="pl-1 mb-0">Quantity: {{ item.quantity }}</p>
+                          </div>
+                          <div class="col-2">
+                              <p id="cartItem1Price">₹{{ item.product.Price }}</p>
+                          </div>
+                          <div class="col-2">
+                            <a href="{% url 'remove_from_cart' item.id %}" style="color: white; text-decoration: none;">
+                              <button class="btn btn-danger btn-sm" data-product-id="{{ item.product.id }}">
+                                 Remove
+                              </button>             
+                          </a>
+                          </div>
+                      </div>
+                      <hr>
+                      {% endfor %}
+                  </div>
+                  <div class="col-12 col-sm-4 p-3 proceed form">
+                      <div class="row mx-0 mb-2">
+                          <div class="col-sm-8 p-0 d-inline">
+                              <h5>Total Quantity</h5>
+                          </div>
+                          <script>
+                            var quantityInput = document.getElementById('product-quantity');
+                            quantityInput.addEventListener('change', function() {
+                                var newQuantity = parseInt(quantityInput.value);
+                                document.getElementById('total_quantity').innerText = newQuantity;
+                            });
+                        </script>
+                        
+                          <div class="col-sm-4 p-0">
+                              <p id="total-quantity">{{ total_quantity }}</p>
+                          </div>
+                      </div>
+                      <a href="{% url 'checkout' %}"><button id="btn-checkout" class="shopnow"><span>Checkout</span></button></a>
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <div class="text-center">
+              <a href="{% url 'home' %}" class="btn btn-primary">Continue Shopping</a>
+          </div>
+      </main>
+  </div>
+  
